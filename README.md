@@ -1,4 +1,5 @@
 # Crop-Recommendation-Project
+##Read Instructions.txt file to understand<br>
 Crop Recommendation using Machine Learning ,Fastapi(backend) & angular(frontend)<br>
 1)create a machine learnig model <br>
 2)dump to pickle file<br>
