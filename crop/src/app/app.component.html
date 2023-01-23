@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+  </head>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-4">
+
+      <h4>Predict Crop</h4>
+
+      <form ngNativeValidate #userForm="ngForm" (ngSubmit)="userForm.form.valid && onSubmit(userForm)">
+          <div class="form-group">
+              <label>N(ratio of nitrogen):</label>
+              <input  type="text" class="form-control" name="N" [(ngModel)]="N" required placeholder="Range ->(0 to 140)">
+          </div>
+
+          <div class="form-group">
+              <label>P(ratio of phosporus):</label>
+              <input  type="text" class="form-control" name="P" [(ngModel)]="P"  placeholder="Range ->(5 to 145)">
+          </div>
+
+          <div class="form-group">
+              <label> K(ratio of potassium) :</label>
+              <input  type="text" class="form-control" name="K" [(ngModel)]="K"  placeholder="Range ->(5 to 205)">
+          </div>
+
+          <div class="form-group">
+              <label >temperature:</label>
+              <input  type="text" class="form-control" name="temperature" [(ngModel)]="temperature"  placeholder="Range ->(8.25 to 43.67)">
+          </div>
+
+          <div class="form-group">
+              <label > humidity :</label>
+              <input  type="text" class="form-control" name="humidity" [(ngModel)]="humidity"  placeholder="Range ->(14.25 to 99)">
+         </div>
+
+          <div class="form-group">
+              <label >ph   :</label>
+              <input  type="text" class="form-control" name="ph" [(ngModel)]="ph"  placeholder="Range ->(3.5 to 9.9)">
+         </div>
+         
+          <div class="form-group">
+              <label >rainfall:</label>
+              <input  type="text" class="form-control" name="rainfall" [(ngModel)]="rainfall"  placeholder="Range ->(20.2 to 298.5)">
+         </div>
+
+         <div class="form-group mt-2">
+          <button class="btn btn-sm btn-danger">Submit</button>
+        </div>
+      
+      </form>
+      <div class="mt-3">
+        Crop: <b class="text-primary">{{ data?.Prediction}}</b>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+1. Download and Install Python from https://www.python.org/downloads 
+(Ref: https://data-flair.training/blogs/install-python-windows/)
+Note: Advanced Options -> Add Python to environment variables (during installation)
+===============================================================================================
+2. Create Project Folder "FastAPIDemo"
+================================================================================================
+3. Go to FastAPIDemo folder
+================================================================================================
+4. Create app.py file(backend file)
+	you can use post or get method & attach pickle file in it.
+=================================================================================================
+5. Open VS Code Editor or Cmd and Install Libraries using Terminal
+-----pip install fastapi uvicorn 
+-----pip install scikit_learn
+==========================================================================================================================================
+6. Write the Code
+==========================================================================================================================================
+7. Run the program: uvicorn app:app --host 0.0.0.0 --port 80(to run fastapi)
+	enable port 80 in "inbound rules of 'firewall defender advance setting' "
+===========================================================================================================================================
+8. Browse URL: http://127.0.0.1/predict?N=156&P=170&K=120&temperature=30&humidity=20&ph=7.5&rainfall=200(to see backend running or not)
+	to see hello world running (type localhost inbrowser)
+===========================================================================================================================================
+9.WebAPI Testing with FastAPI
+	http://127.0.0.1:8000/docs
+===========================================================================================================================================
+10.for angular
+	a)create one service[ng g service service_name]then "service serice.ts" is created , enable-- port"[url:any = "http://127.0.0.1/predict";]
+	b)edit "app.component.ts"& import some packages in other files
+	c)edit "app.component.html"
+============================================================================================================================================
+11.for installing angular
+	a)install node.js
+	b)insatall angular--["npm install -g  @angular/cli"]
+	c)create angularfile --["ng create file_name]	enable routing & Css
+	d)to run ["ng serve -o"]	
+==============================================================================================================================================
+12.To host in cloud
+	a)create WindowsEC2 instance
+	b)transfer your backend & frontend files
+		--in angular  files in "service service.ts" file edit port as your public ipv4 of EC2 instance
+	c)enable port 80 in "inbound rules of 'firewall defender advance setting' " in EC2
+	d)same as local system download required software like python,nodejs,angular,fastapi etc...& make sure backend is running to see output
+	e)open terminal in angular path to create dist file--["ng build"]
+	f)create a S3 bucket upload all files in dist file to S3& enable "static wesite hosting" ,give index.html & make it public by editing bucket policy 
+	  json as {
+			"Version": "2012-10-17",
+
+			"Statement":[
+				{
+					"Sid": "addperm",
+
+					"Effect": "Allow",
+
+					"Principal":"*",
+
+					"Action": "s3:GetObject",
+
+					"Resource": "arn:aws:s3:::bucket-85/*"
+				}
+			]
+		  }
+	g)copy S3's :Static website hosting link & paste in browser to see angular output(make sure instance & backend is running)
+	h)if u stop instance public ipv4 will change , so if you want attach "elasticip" to get permanent ipv4
